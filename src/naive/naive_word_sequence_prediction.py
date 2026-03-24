@@ -1,8 +1,11 @@
 # Given a single word W, this prints the probable word sequence that can come
 # after W
 
-from src.utils.db import db
 from src.utils.string import clean_word
+
+from .indexer import Indexer
+
+indexer = Indexer()
 
 next_word_sequence_size = 10
 
@@ -48,20 +51,20 @@ while True:
         # frequent. And so on and so forth until there is no next frequent word
         # left for `word`. Then it resets back to the most frequent next word.
         word_count = word_counts.get(word, 0)
-        next_word = db.zget(word, word_count)
+        next_words = indexer.get_next_words(word, word_count)
 
-        if not next_word:
+        if not next_words:
             if word_count > 0:
                 word_count = 0
 
-                next_word = db.zget(word, word_count)
+                next_words = indexer.get_next_words(word, word_count)
 
             # Stop the sequence abruptly if no next word is found for 'word'
             break
 
-        sequence.append(next_word)
+        sequence.extend(next_words)
 
         word_counts[word] = word_count + 1
-        word = next_word
+        word = next_words[-1]
 
     print(" ".join(sequence))

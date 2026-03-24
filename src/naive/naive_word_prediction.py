@@ -3,6 +3,10 @@
 from src.utils.db import db
 from src.utils.string import clean_word
 
+from .indexer import Indexer
+
+Indexer()
+
 num_of_next_words = 1
 
 while True:

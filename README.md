@@ -10,6 +10,7 @@ A Python project for implementing word prediction algorithms.
 
 - Assumes there are no broken sentences, i.e. new line within a sentence.
 - Is case sensitive
+- Considers only `’` as appostrope
 
 ## Installation
 
