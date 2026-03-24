@@ -40,16 +40,3 @@ Run the prediction script:
 python predict-next-word.py
 python predict-next-word-sequence.py
 ```
-
-## Project Structure
-
-```
-word-prediction/
-├── src/
-│   ├── __init__.py
-│   └── naive_word_prediction.py
-├── pyproject.toml
-├── README.md
-├── LICENSE
-└── .pre-commit-config.yaml
-```
