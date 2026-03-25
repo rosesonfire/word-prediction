@@ -38,6 +38,11 @@ Before running, update the `FILE_NAME` variable in `src/config.py` to point to y
 Run the prediction script:
 
 ```bash
-python predict-next-word.py
-python predict-next-word-sequence.py
+./predict-next-word.sh
 ```
+
+```bash
+./predict-next-word-sequence.sh
+```
+
+![Demo](assets/demo.gif)
